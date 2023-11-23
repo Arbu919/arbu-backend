@@ -21,7 +21,7 @@ export {asyncHandler};
 NOW THE EXACT SAME CODE IN PROMISE =====
 */
 const asyncHandler = (requestHandler) => {
-    (req, res, next) => {
+    return (req, res, next) => {
         Promise.resolve(requestHandler(req, res, next)).catch((err) => next(err));
     }
 };
